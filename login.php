@@ -1,0 +1,80 @@
+<?php
+session_start();
+$host = "localhost";
+$user = "root";
+$password = "";
+$dbname = "userinfo_database";
+
+// Connect to MySQL
+$conn = new mysqli($host, $user, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Handle login
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $password = $_POST['password'];
+
+    // Check if user exists
+    $sql = "SELECT * FROM users WHERE email='$email'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows == 1) {
+        $user = $result->fetch_assoc();
+
+        // Verify password
+        if (password_verify($password, $user['password'])) {
+            // Set session variable for the logged-in user
+            $_SESSION['user'] = $user['fullname'];
+
+            // Redirect to introduction.php after login
+            header("Location: introduction.php");
+            exit(); // Ensure no further code is executed after redirect
+        } else {
+            echo "<script>alert('Incorrect password!'); window.location.href='login.php';</script>";
+        }
+    } else {
+        echo "<script>alert('No account found with this email!'); window.location.href='login.php';</script>";
+    }
+}
+
+$conn->close();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-[url(https://img.freepik.com/free-vector/geometric-gradient-futuristic-background_23-2149116406.jpg)] bg-cover">
+
+    <div class="w-full max-w-sm p-6 bg-white rounded-lg shadow-md">
+        <h2 class="text-2xl font-bold text-center text-gray-700">Login</h2>
+        
+        <!-- Login Form -->
+        <form class="mt-4" action="login.php" method="POST">
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Email</label>
+                <input type="email" name="email" class="w-full px-4 py-2 mt-1 border rounded-lg focus:ring focus:ring-blue-300" placeholder="Enter your email" required>
+            </div>
+
+            <div class="mt-4">
+                <label class="block text-sm font-medium text-gray-700">Password</label>
+                <input type="password" name="password" class="w-full px-4 py-2 mt-1 border rounded-lg focus:ring focus:ring-blue-300" placeholder="Enter your password" required>
+            </div>
+
+            <button type="submit" class="w-full px-4 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-700">Login</button>
+        </form>
+
+        <!-- Sign Up Link -->
+        <p class="mt-4 text-sm text-center text-gray-600">Don't have an account? <a href="signup.html" class="text-blue-600 hover:underline">Sign up</a></p>
+    </div>
+
+</body>
+</html>
