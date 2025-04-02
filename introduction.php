@@ -15,16 +15,19 @@ if (isset($_GET['logout'])) {
     exit();
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event Calendar</title>
+    <title>Event Calender</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
     <style>
+      
         body {
             cursor: none;
         }
@@ -55,84 +58,123 @@ if (isset($_GET['logout'])) {
     <div id="cursor-dot" class="cursor-dot"></div>
     <div id="cursor-outline" class="cursor-outline"></div>
 
-    <div class="bg-gray-950 flex items-center justify-center text-xs py-2">
+    <div class="bg-gray-950 flex  items-center justify-center text-xs py-2 ">
         We believe in good management. Do you?
     </div>
 
-    <nav class="bg-gradient-to-r from-indigo-300 via-purple-300 to-pink-300 p-6 text-black font-bold shadow-lg">
+    <nav class="bg-gradient-to-r from-indigo-300 via-purple-300 to-pink-300 p-6 text-black font-bold shadow-lg ">
         <div class="container mx-auto flex justify-between items-center">
             <a href="#" class="text-3xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 flex items-center gap-2">
-                TIME IS MONEY
+                TIME IS MONEY 
+               
             </a>
             <ul class="flex space-x-6">
                 <li><a href="aboutus.html" class="hover:underline italic text-lg hover:text-purple-600 transition-all duration-300 hover:scale-110">About</a></li>
                 <li><a href="services.html" class="hover:underline italic text-lg hover:text-purple-600 transition-all duration-300 hover:scale-110">Services</a></li>
                 <li><a href="contact.html" class="hover:underline italic text-lg hover:text-purple-600 transition-all duration-300 hover:scale-110">Contact</a></li>
-                <!-- Logout Button -->
-                <li><a href="logout.php" class="hover:underline italic text-lg hover:text-purple-600 transition-all duration-300 hover:scale-110">Logout</a></li>
-
             </ul>
         </div>
     </nav>
 
-    <!-- Welcome Message -->
-    <div class="flex">
-        <div>
-            <h1 class="text-5xl font-bold italic mt-25 p-8 mx-40">A Better Way To</h1>
-            <h2 class="text-5xl font-bold italic mx-40 underline text-blue-400 hover:text-blue-300 animate-bounce delay-700">Manage Event</h2>
-            <p class="text-xl font-bold p-5 mx-40">-- World's Most Advanced Event Management Software powered by AI ....</p>
+    <section id="home" class="relative overflow-hidden">
+        
+        <div class="container mx-auto px-6 py-20 md:py-32 relative z-10">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2   text-center md:text-left mb-12 md:mb-0 animate__animated animate__fadeInLeft animate_delay-2000">
+                    <h1 class="text-5xl md:text-6xl font-bold mb-4 text-gray-300">
+                        Revolutionize Your <span class="gradient-text">Event Management</span>
+                    </h1>
+                    <p class="text-xl text-gray-600 mb-8">
+                        The world's most advanced event management platform powered by AI. Schedule, organize, and collaborate like never before.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center md:justify-start">
+                        <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-full font-semibold shadow-lg transition duration-300 transform hover:scale-105">
+                           <a href="calendar.html"> Get Started Free</a>
+                        </button>
+                       
+                    </div>
+                </div>
+                <div class="md:w-1/2 animate__animated animate__fadeInRight w-10">
+                    <img class="rounded-xl" src="https://media.wired.com/photos/653bddf62692abf70732f95b/master/w_2560%2Cc_limit/Google-Calendar-Appointments-Gear-GettyImages-1385868923.jpg" alt="Event Management Dashboard" class="w-full max-w-lg mx-auto floating">
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
+
     
-    <!-- Content Section 1 -->
+    
+
+    
     <div class="flex space-x-20">
         <div class="py-20">
-            <h1 class="text-4xl fonr-bold px-20 py-4 text-blue-600 italic">More than just planning</h1>
-            <p class="px-3 text-xl font-bold">Organize meetings and events, invite your team members and <br> external users, plan your day.</p>
-            <button class="p-2 px-2 text-2xl font-bold borde-3 bg-lime-600 text-white px-5 border rounded mx-20 my-5 italic hover:text-black duration-300 ease-in">
-                <a href="calendar.html"> Start For Free</a>
-            </button>
+        <h1 class="text-4xl fonr-bold px-20 py-4 text-blue-600 italic">More than just planing  </h1>
+        <p class="px-3 text-xl font-bold"> organize meetings and events, invite your team members and <br> external users,plan your day.</p>
+        <button class="p-2 px-2 text-2xl font-bold borde-3 bg-lime-600 text-white px-5 border rounded mx-20 my-5 italic hover:text-black duration-300 ease-in "><a href="calendar.html"> Start For Free</a></button>
         </div>
-        <div class="h-[50px] w-[600px]">
-            <a href="calendar.html">
-                <img class="rounded-xl" src="https://www.bitrix24.in/upload/optimizer/converted/images/content_en/product/collaboration/free_online_calendar_software/box_img_1.jpg.webp?1741952127945" alt="Event Management">
-            </a>
+        <div  class="h-[50px] w-[600px]">
+            <img class="rounded-xl" src="https://www.bitrix24.in/upload/optimizer/converted/images/content_en/product/collaboration/free_online_calendar_software/box_img_1.jpg.webp?1741952127945" alt="">
         </div>
     </div>
 
-    <!-- Content Section 2 -->
     <div class="flex space-x-20 p-20 rounded-xl">
-        <div class="h-[50px] w-[600px]">
-            <img id="slide-right-image" class="rounded-xl" src="https://www.bitrix24.in/upload/optimizer/converted/images/content_en/product/collaboration/free_online_calendar_software/box_img_2.jpg.webp?1741952127945" alt="">
+        <div  class="h-[50px] w-[600px]  ">
+            <img class="rounded-xl" src="https://www.bitrix24.in/upload/optimizer/converted/images/content_en/product/collaboration/free_online_calendar_software/box_img_2.jpg.webp?1741952127945" alt="">
         </div>
-        
         <div class="py-20">
-            <h1 class="text-4xl px-20 py-4 text-blue-600 italic">More than just organizing</h1>
-            <p class="px-3 text-xl font-bold"> There’s so much you can do with a simple event in Bitrix24 Calendar: create a quick chat, set up an online meeting, or assign a task.</p>
-            <button class="p-2 px-2 text-2xl font-bold borde-3 bg-lime-600 text-white px-5 border rounded mx-20 my-5 italic hover:text-black"><a href="calendar.html">Start For Free</a></button>
+        <h1 class="text-4xl px-20 py-4 text-blue-600 italic">More than just organizing</h1>
+        <p class="px-3 text-xl font-bold"> There’s so much you can do with a simple event in Bitrix24 Calendar: create a quick chat, set up an online meeting, or assign a task.</p>
+        <button class="p-2 px-2 text-2xl font-bold borde-3 bg-lime-600 text-white px-5 border rounded mx-20 my-5 italic hover:text-black"><a href="calendar.html">Start For Free</a></button>
         </div>
+       
     </div>
+    
 
-    <!-- Footer -->
-    <div class="text-center">Privacy Policy | Terms of Service | Official Community | Creation Guideline | HOME Terms of Service</div>
-    <div class="justify-center flex gap-7 p-3 ">
-        <div>--@亗卄iṁąのれu</div>
-        <div>--@ḐɽヤḌ٥５m</div>
-    </div>
-    <div class="justify-center flex gap-7 ">
-        <div>--@ŠØUL๛Vivek</div>
-        <div>--@Lîôṅ๛heart</div>
-    </div>
 
+    <footer class="bg-gray-950 py-[50px]">
+        <div class="text-center">Privacy Policy | Terms of Service | Official Community | Creation Guideline | HOME Terms of Service</div>
+        <div class="justify-center flex gap-7 p-3 ">
+            <div>--@亗卄iṁąのれu</div>
+            <div>--@ḐɽヤḌ٥٥m</div>
+         </div>
+         <div class="justify-center flex gap-7 ">
+            <div>--@ŠØUL๛Vivek</div>
+            <div>--@Lîôṅ๛heart</div>
+         </div>
+         
+        
+        
+        </footer>
     <script>
+
+const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        </script>
+        <script>
         const cursorDot = document.querySelector('#cursor-dot');
         const cursorOutline = document.querySelector('#cursor-outline');
 
         document.addEventListener('mousemove', (e) => {
+
             gsap.to(cursorDot, { x: e.clientX, y: e.clientY, duration: 0.01 });
+
             gsap.to(cursorOutline, { x: e.clientX, y: e.clientY, duration: 0.2, ease: "power2.out" });
         });
     </script>
 
 </body>
 </html>
+
+
+         
+   
